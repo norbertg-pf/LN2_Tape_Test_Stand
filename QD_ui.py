@@ -8,7 +8,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 import threading
-import socket
 from typing import Iterable, List, Tuple, Union
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import TDK_PSU_Control as PSU

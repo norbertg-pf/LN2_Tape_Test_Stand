@@ -12,7 +12,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import TDK_PSU_Control as PSU
 import os
 
-
 # ---------------- Global Variables ---------------- #
 measurement_running = False
 times, currents, voltages = [], [], []
@@ -34,7 +33,7 @@ treshold_var     = tk.StringVar(value="0.2")
 ramprate_var     = tk.StringVar(value="20")
 maxcurrent_var   = tk.StringVar(value="500")
 IP_PSU_var       = tk.StringVar(value="169.254.249.195")
-IP_DMM_var       = tk.StringVar(value="169.254.169.37")
+IP_DMM_var       = tk.StringVar(value="169.254.197.171")
 
 # --- GUI Layout --- #
 ttk.Label(root, text="CSV Filename:").grid(row=0, column=0)
@@ -107,7 +106,12 @@ def open_file():
 # ---------------- Measurement Start ---------------- #
 def start_measurement():
     global measurement_running, file, csv_writer, thread_readdata
+    global times, currents, voltages
     measurement_running = True
+
+    times.clear()
+    currents.clear()
+    voltages.clear()
 
     write_script_to_Keithley()
     time.sleep(1)
@@ -207,7 +211,8 @@ def read_data():
 
         except Exception as e:
             error += 1
-            if error > 3:
+            if error > 30:
+                print("exception at data collection:", error)
                 stop_measurement()
 
         time.sleep(0.01)  # 100 Hz

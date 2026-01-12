@@ -140,11 +140,11 @@ def program_current_wave_sequence(
         scpi_write(sock, f"TRIG:DEL {float(trigger_delay):.6g}")
         scpi_write(sock, f"INIT:CONT {'ON' if continuous_init else 'OFF'}")
 
-        # INIT arms the trigger system; *TRG will actually start the sequence.
-        scpi_write(sock, "INIT")
-
         # Turn output ON so the sequence drives the load when triggered.
         scpi_write(sock, "OUTP ON")
+
+        # INIT arms the trigger system; *TRG will actually start the sequence.
+        scpi_write(sock, "INIT")
 
         time.sleep(0.2)
         

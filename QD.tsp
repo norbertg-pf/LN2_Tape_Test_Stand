@@ -43,7 +43,7 @@ function main()
         local t = timer.gettime()
 		local v = dmm.measure.read()
         buffer.write.reading(QDbuf, v, t)  -- store timestamp + value
-		if (v>v_treshold or v<-v_treshold) and QD == 0 and t > 2  then
+		if (v>v_treshold or v<-v_treshold) and QD == 0 and t > 3  then
 			channel.write("121", 255)
 			channel.write("122", 0)
 			print("QD")

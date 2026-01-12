@@ -28,7 +28,7 @@ A simple quench detection system for measuring superconducting parameters of HTS
 
 ##### Download the repo
 
-`git clone https://github.com/norbertg-pf/Tape_measurement_software`
+`git clone https://github.com/norbertg-pf/LN2_Tape_Test_Stand.git`
 
 ##### Creating a virtual environemnt
 ```

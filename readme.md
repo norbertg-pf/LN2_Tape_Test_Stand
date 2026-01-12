@@ -42,6 +42,7 @@ pip install pyvisa-py
 pip install matplotlib
 pip install tk
 pip install numpy
+pip install pyinstaller
 ```
 
 #### Running the code
